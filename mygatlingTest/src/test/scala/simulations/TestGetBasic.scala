@@ -7,7 +7,7 @@ import io.gatling.http.Predef._
 class TestGetBasic extends Simulation{
 
   // Set HTTP Configuration
-  val httpConf = http.baseUrl("https://reqres.in/")
+  val httpConf = http.baseUrl("http://reqres.in/")
     .header("connection", "Keep-Alive")
 
   val initialHeaders = Map(
