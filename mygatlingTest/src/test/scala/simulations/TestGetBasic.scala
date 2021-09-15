@@ -2,12 +2,14 @@ package simulations
 
 import io.gatling.core.scenario.Simulation
 import io.gatling.core.Predef._
+import io.gatling.core.structure.ScenarioBuilder
 import io.gatling.http.Predef._
+import io.gatling.http.protocol.HttpProtocolBuilder
 
 class TestGetBasic extends Simulation{
 
   // Set HTTP Configuration
-  val httpConf = http.baseUrl("http://reqres.in/")
+  val httpConf: HttpProtocolBuilder = http.baseUrl("http://reqres.in/")
     .header("connection", "Keep-Alive")
 
   val initialHeaders = Map(
@@ -16,10 +18,11 @@ class TestGetBasic extends Simulation{
   )
 
   //Set up scenario
-  val scn = scenario("Get Users")
+  val scn: ScenarioBuilder = scenario("Get Users")
     .exec(
       http("Get Users list")
         .get("/api/users?page=2")
+        .headers(initialHeaders)
         .check(status is 200)
     )
 

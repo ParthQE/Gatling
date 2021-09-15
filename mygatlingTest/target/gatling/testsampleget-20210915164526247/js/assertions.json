@@ -1,0 +1,10 @@
+{
+  "simulation": "simulations.TestSampleGet",
+  "simulationId": "testsampleget",
+  "start": 1631724326247,
+  "description": "",
+  "scenarios": ["Test basic Get"],
+  "assertions": [
+
+  ]
+}
